@@ -3,6 +3,11 @@ variable "region" {
   default     = "ap-southeast-2"
 }
 
+variable "aws_account_id" {
+  description = "AWS account ID"
+  type        = string
+}
+
 variable "aws-access-key" {
   description = "AWS access key"
   type        = string
@@ -21,7 +26,7 @@ variable "iam_user_name" {
 variable "project" {
   description = "Project name used for tags"
   type        = string
-  default     = "dark-watch"
+  default     = "Wilt"
 }
 
 variable "aws_vpc_cidr" {
@@ -74,13 +79,13 @@ variable "bastion_host_ami" {
 variable "eks_cluster_name" {
   description = "Name of the EKS cluster"
   type        = string
-  default     = "dark-watch-eks-cluster"
+  default     = "Wilt-eks-cluster"
 }
 
 variable "eks_node_group_name" {
   description = "Name of the EKS node group"
   type        = string
-  default     = "dark-watch-node-group"
+  default     = "Wilt-node-group"
 }
 
 variable "eks_cluster_version" {
@@ -96,4 +101,27 @@ variable "node_instance_type" {
 }
 
 
+## Variables for RDS
+
+variable "POSTGRES_DB" {
+  description = "RDS database name"
+  type        = string
+  default     = "wiltdb"
+}
+
+variable "POSTGRES_USER" {
+  description = "RDS database user"
+  type        = string
+}
+
+variable "POSTGRES_PASSWORD" {
+  description = "RDS database password"
+  type        = string  
+}
+
+variable "db_instance_class" {
+  description = "RDS database instance class"
+  type        = string
+  default     = "db.t3.micro"
+}
 
